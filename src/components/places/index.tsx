@@ -1,5 +1,6 @@
 import { Text, useWindowDimensions } from "react-native";
 import BottomSheet, { BottomSheetFlatList } from "@gorhom/bottom-sheet"
+import { router } from "expo-router";
 
 import { s } from "./styles";
 import { Place, PlaceProps } from "../place"
@@ -30,7 +31,7 @@ export function Places({data}: Props) {
         renderItem={({ item }) => (
           <Place
             data={item}
-            
+            onPress={() => router.navigate(`/market/${item.id}`)}
           />
         )}
         contentContainerStyle={s.content}
